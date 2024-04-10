@@ -1,0 +1,102 @@
+class pizzeria
+{
+    static public void Main(string[] args)
+    {
+        string nombre;
+        int opción, pizza, bebida, combo;
+
+        Console.WriteLine("¿Cuál es su nombre?");
+        nombre = Console.ReadLine();
+
+        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?.");
+        Console.WriteLine("Dentro de nuestros menú le ofrecemos una variedad de opciones que se adaptan al gusto de cada cliente.");
+
+        Console.WriteLine("1. Pizza");
+        Console.WriteLine("2. Combos");
+        Console.WriteLine("3. Pizza personalizada");
+        Console.WriteLine("4. Entrada");
+        Console.WriteLine("5. Postres");
+        Console.WriteLine("6. Bebidas");
+        opción = int.Parse(Console.ReadLine());
+        Console.Clear();
+
+        switch (opción)
+        {
+            case 1:
+                Console.WriteLine("1. Triple queso (Mozzarella, Cheddar, Parmesano)");
+                Console.WriteLine("2. Pizza Hawaiana (Jamón, tocino, Piña");
+                Console.WriteLine("3. Vulcano (Ppeperoni añejo, Jalapeño y cebolla)");
+                Console.WriteLine("4. Margherita (Tomate cherry, pesto de albahaca)");
+                Console.WriteLine("5. Speziato (Tocino, Cheddar, Jalapeño)");
+                pizza = int.Parse(Console.ReadLine());
+
+                switch (pizza)
+                {
+
+                }
+
+
+
+
+                break;
+
+              
+
+            case 2:
+                Console.WriteLine("1. Artigiano");
+                Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
+                Console.WriteLine("2. Clásico");
+                Console.WriteLine("Contiene una pizza grande de Ppeperoni o jamón, pan con ajo y 2 té de durazno");
+                Console.WriteLine("3. Duetto");
+                Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o jamón y 4 té de Drazno");
+                Console.WriteLine("4. Tripletta");
+                Console.WriteLine("Contiene 3 pizzas grabndes de jamón on pepperoni y 6 Té de Durazno");
+
+                combo = int.Parse(Console.ReadLine());
+
+                  
+                break;
+
+            case 3:
+                break;
+
+            case 4:
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                Console.WriteLine("Elige la bebida de tu preferencia");
+                Console.WriteLine("1. Limonada");
+                Console.WriteLine("2. Té de durazno");
+                Console.WriteLine("3. Horchata");
+                Console.WriteLine("4. Soda lata");
+                Console.WriteLine("5. Limonada Greenapple");
+                bebida = int.Parse(Console.ReadLine());
+
+
+                switch (bebida)
+                {
+                    case 1:
+
+                        break;
+
+
+                }
+
+
+                break;
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+}
