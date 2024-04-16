@@ -4,6 +4,8 @@ class pizzeria
     {
         string nombre;
         int opción, pizza, bebida, combo;
+        double precioTotal = 4.00;
+        String masa, queso, vege1, vege2, salsa, carne1, carne2;
 
         Console.WriteLine("¿Cuál es su nombre?");
         nombre = Console.ReadLine();
@@ -228,6 +230,244 @@ class pizzeria
                 break;
 
             case 3:
+
+                Console.WriteLine("¡Seleccione los ingredientes para personalizar su pizza!");
+                Console.WriteLine("\nSeleccione el tipo de masa:");
+                Console.WriteLine("1. Tradicional");
+                Console.WriteLine("2. Sin gluten");
+                Console.WriteLine("3. Integral");
+                int opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        masa = "Tradicional";
+                        break;
+                    case 2:
+                        masa = "Sin gluten";
+                        precioTotal += 1.50;
+                        break;
+                    case 3:
+                        masa = "Integral";
+                        precioTotal += 2.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará masa tradicional por defecto.");
+                        masa = "Tradicional";
+                        break;
+                }
+
+                Console.WriteLine("\nSeleccione el tipo de queso:");
+                Console.WriteLine("1. Mozzarella");
+                Console.WriteLine("2. Parmesano");
+                Console.WriteLine("3. Cheddar");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        queso = "Mozzarella";
+                        break;
+                    case 2:
+                        queso = "Parmesano";
+                        precioTotal += 1;
+                        break;
+                    case 3:
+                        queso = "Cheddar";
+                        precioTotal += 1;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará queso mozzarella por defecto.");
+                        queso = "Mozzarella";
+                        break;
+                }
+
+                Console.WriteLine("\nSeleccione el tipo de salsa:");
+                Console.WriteLine("1. Salsa de tomate");
+                Console.WriteLine("2. Pesto");
+                Console.WriteLine("3. BBQ");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        salsa = "Salsa de tomate";
+                        break;
+                    case 2:
+                        salsa = "Pesto";
+                        precioTotal += 1.00;
+                        break;
+                    case 3:
+                        salsa = "BBQ";
+                        precioTotal += 1.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará salsa de tomate por defecto.");
+                        salsa = "Salsa de tomate";
+                        break;
+                }
+
+                Console.WriteLine("\nSeleccione los vegetales:");
+                Console.WriteLine("Seleccione el primer vegetal:");
+                Console.WriteLine("1.Champiñones");
+                Console.WriteLine("2.Pimientos");
+                Console.WriteLine("3.Cebolla");
+                Console.WriteLine("4.Aceitunas");
+                Console.WriteLine("5.Ninguno");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        vege1 = "Champiñones";
+                        break;
+                    case 2:
+                        vege1 = "Pimientos";
+                        precioTotal += 0.50;
+                        break;
+                    case 3:
+                        vege1 = "Cebolla";
+                        precioTotal += 0.50;
+                        break;
+                    case 4:
+                        vege1 = "Aceitunas";
+                        precioTotal += 0.50;
+                        break;
+                    case 5:
+                        vege1 = "-";
+                        precioTotal += 0.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará vegetales por defecto.");
+                        vege1 = "Champiñones";
+                        break;
+                }
+
+                Console.WriteLine("\nSeleccione el segundo vegetal:");
+                Console.WriteLine("1.Champiñones");
+                Console.WriteLine("2.Pimientos");
+                Console.WriteLine("3.Cebolla");
+                Console.WriteLine("4.Aceitunas");
+                Console.WriteLine("5.Ninguno");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        vege2 = "Champiñones";
+                        break;
+                    case 2:
+                        vege2 = "Pimientos";
+                        precioTotal += 0.50;
+                        break;
+                    case 3:
+                        vege2 = "Cebolla";
+                        precioTotal += 0.50;
+                        break;
+                    case 4:
+                        vege2 = "Aceitunas";
+                        precioTotal += 0.50;
+                        break;
+                    case 5:
+                        vege2 = "-";
+                        precioTotal += 0.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará vegetales por defecto.");
+                        vege2 = "Cebolla";
+                        break;
+                }
+
+                Console.WriteLine("\nSeleccione el tipo de carne:");
+                Console.WriteLine("1. Pepperoni");
+                Console.WriteLine("2. Jamón");
+                Console.WriteLine("3. Pollo");
+                Console.WriteLine("4. Tocino");
+                Console.WriteLine("5. Salami");
+                Console.WriteLine("6. Ninguno");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        carne1 = "Pepperoni";
+                        break;
+                    case 2:
+                        carne1 = "Jamón";
+                        precioTotal += 1;
+                        break;
+                    case 3:
+                        carne1 = "Pollo";
+                        precioTotal += 1;
+                        break;
+                    case 4:
+                        carne1 = "Tocino";
+                        precioTotal += 1;
+                        break;
+                    case 5:
+                        carne1 = "Salami";
+                        precioTotal += 1;
+                        break;
+                    case 6:
+                        carne1 = "-";
+                        precioTotal += 0.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará Pepperoni por defecto.");
+                        carne1 = "Pepperoni";
+                        break;
+                }
+
+                Console.WriteLine("\n Seleccione el segundo tipo de carne:");
+                Console.WriteLine("1. Pepperoni");
+                Console.WriteLine("2. Jamón");
+                Console.WriteLine("3. Pollo");
+                Console.WriteLine("4. Tocino");
+                Console.WriteLine("5. Salami");
+                Console.WriteLine("6. Ninguno");
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        carne2 = "Pepperoni";
+                        break;
+                    case 2:
+                        carne2 = "Jamón";
+                        precioTotal += 1;
+                        break;
+                    case 3:
+                        carne2 = "Pollo";
+                        precioTotal += 1;
+                        break;
+                    case 4:
+                        carne2 = "Tocino";
+                        precioTotal += 1;
+                        break;
+                    case 5:
+                        carne2 = "Salami";
+                        precioTotal += 1;
+                        break;
+                    case 6:
+                        carne2 = "-";
+                        precioTotal += 0.00;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Se seleccionará Pepperoni por defecto.");
+                        carne2 = "Pepperoni";
+                        break;
+                }
+                Console.WriteLine("\nResumen del pedido:");
+                Console.WriteLine("Masa: " + masa);
+                Console.WriteLine("Queso:" + queso);
+                Console.WriteLine("Salsa:" + salsa);
+                Console.WriteLine("Primer vegetal:" + vege1);
+                Console.WriteLine("Segundo Vegetal:" + vege2);
+                Console.WriteLine("Primer carne:" + carne1);
+                Console.WriteLine("Segunda carne:" + carne2);
+                Console.WriteLine("Precio Total:" + precioTotal);
+                Console.WriteLine("\n¡Gracias por ordenar en nuestra pizzería!");
+
                 break;
 
             case 4:
