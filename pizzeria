@@ -99,10 +99,74 @@ class pizzeria
                         break;
 
                         case 4:
+Console.WriteLine("Elija su entrada:");
+Console.WriteLine("1) Pizzeta de ajo $3.50");
+Console.WriteLine("2) Pan con ajo $3.50");
+Console.WriteLine("3) Alitas $4.50");
+entrada = int.Parse(Console.ReadLine());
+
+switch (entrada)
+{
+    case 1:
+        Console.WriteLine("Ha elejido pizzeta de ajo");
+        precio += precio + 3.50;
+        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
+        break;
+
+    case 2:
+        Console.WriteLine("Ha elejido pan con ajo");
+        precio += precio + 3.50;
+        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
+        break;
+
+    case 3:
+        Console.WriteLine("Ha elejido alitas");
+        precio += precio + 4.50;
+        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
+        break;
+
+}
 
                         break;
 
                         case 5:
+Console.WriteLine("Que postre desea?");
+Console.WriteLine("1) Brownie $1.25");
+Console.WriteLine("2) Tres Leches $1.75");
+Console.WriteLine("3) Cheesecake $3");
+Console.WriteLine("4) Quesadilla $2");
+postre = int.Parse(Console.ReadLine());
+
+switch (postre)
+{
+    case 1:
+        Console.WriteLine("Cuantos brownies agregara?");
+        cantidad = int.Parse(Console.ReadLine());
+        total += total + 1.25 * cantidad;
+        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
+        break;
+
+    case 2:
+        Console.WriteLine("Cuantos tres leches agregara?");
+        cantidad = int.Parse(Console.ReadLine());
+        total += total + 1.75 * cantidad;
+        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
+        break;
+
+    case 3:
+        Console.WriteLine("Cuantos cheesecake agregara?");
+        cantidad = int.Parse(Console.ReadLine());
+        total += total + 3 * cantidad;
+        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
+        break;
+
+    case 4:
+        Console.WriteLine("Cuantas quesadillas agregara?");
+        cantidad = int.Parse(Console.ReadLine());
+        total += total + 2 * cantidad;
+        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
+        break;
+}
 
                         break;
 
