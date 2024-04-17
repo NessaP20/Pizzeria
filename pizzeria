@@ -3,8 +3,8 @@ class pizzeria
     static public void Main(string[] args)
     {
         string nombre;
-        int opción, pizza, bebida, combo;
-        double precioTotal = 4.00;
+        int opción, pizza, bebida, combo, postre, entrada, cantidad;
+        double precioTotal = 4.00, precio=0, total=0;
         String masa, queso, vege1, vege2, salsa, carne1, carne2;
 
         Console.WriteLine("¿Cuál es su nombre?");
