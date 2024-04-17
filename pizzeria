@@ -197,7 +197,7 @@ switch (postre)
 
 
             case 2:
-                Console.WriteLine("1. Artigiano $15.95");
+                            Console.WriteLine("1. Artigiano $15.95");
                             Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
                             Console.WriteLine("2. Speciale $11.95");
                             Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
