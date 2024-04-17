@@ -131,14 +131,98 @@ class pizzeria
 
 
             case 2:
-                Console.WriteLine("1. Artigiano");
-                Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
-                Console.WriteLine("2. Clásico");
-                Console.WriteLine("Contiene una pizza grande de Ppeperoni o jamón, pan con ajo y 2 té de durazno");
-                Console.WriteLine("3. Duetto");
-                Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o jamón y 4 té de Drazno");
-                Console.WriteLine("4. Tripletta");
-                Console.WriteLine("Contiene 3 pizzas grabndes de jamón on pepperoni y 6 Té de Durazno");
+                Console.WriteLine("Seleccione que banquete quiere pedir:");
+Console.WriteLine("1. Artigiano $15.95");
+Console.WriteLine("Contiene una Pizza grande de pepperoni o Jamón, una orden de alitas, pizzeta de ajo, 3 Té de durazno");
+Console.WriteLine("2. Speciale $11.95");
+Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
+Console.WriteLine("3. Classico $9.99");
+Console.WriteLine("Contiene una pizza grande de pepperoni o Jamón, pan con ajo y 2 Té de durazno");
+Console.WriteLine("4. Duetto $15.99");
+Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o Jamón y 4 Té de Durazno");
+Console.WriteLine("5. Tripletta $23.99");
+Console.WriteLine("Contiene 3 pizzas grandes de Jamón o pepperoni y 6 Té de Durazno");
+
+int opcionPizza = Convert.ToInt32(Console.ReadLine());
+
+string tipoPizza;
+
+switch (opcionPizza)
+{
+    case 1:
+        tipoPizza = "Artigiano $15.95";
+        Console.WriteLine("Seleccione el tipo de aderezo de las alitas");
+
+        Console.WriteLine("1. BBQ");
+        Console.WriteLine("2. Ranch");
+        Console.WriteLine("3. Buffalo");
+
+        int opcionaderezo = Convert.ToInt32(Console.ReadLine());
+
+        string aderezo;
+
+        switch (opcionaderezo)
+        {
+            case 1:
+                aderezo = "con BBQ";
+                break;
+            case 2:
+                aderezo = "con Ranch";
+                break;
+            case 3:
+                aderezo = "Con Buffalo";
+                break;
+            default:
+                Console.WriteLine("Opción no válida.");
+                return;
+        }
+        break;
+    case 2:
+        tipoPizza = "Speciale $11.95";
+
+        break;
+    case 3:
+        tipoPizza = "Classico $9.99";
+
+        break;
+    case 4:
+        tipoPizza = "Duetto $15.99";
+
+        break;
+    case 5:
+        tipoPizza = "Tripletta $23.99";
+
+        break;
+    default:
+        Console.WriteLine("Opción no válida.");
+        return;
+}
+
+Console.WriteLine("Seleccione el ingrediente");
+
+Console.WriteLine("1. Pepperoni");
+Console.WriteLine("2. Jamon");
+
+int opcionIngrediente = Convert.ToInt32(Console.ReadLine());
+
+string Ingrediente;
+
+switch (opcionIngrediente)
+{
+    case 1:
+        Ingrediente = "con pepperoni";
+        break;
+    case 2:
+        Ingrediente = "con Jamon";
+        break;
+    default:
+        Console.WriteLine("Opción no válida.");
+        return;
+}
+
+Console.WriteLine("Resumen del pedido");
+Console.WriteLine("Pizza de " + tipoPizza );
+Console.WriteLine(Ingrediente);
 
                 combo = int.Parse(Console.ReadLine());
 
