@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-
 class Pizzeria
 {
     static void Main(string[] args)
@@ -12,7 +10,7 @@ class Pizzeria
         Console.WriteLine("¿Cuál es su nombre?");
         nombre = Console.ReadLine();
 
-        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
+        Console.WriteLine("Bienvenido/a" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
 
         while (ordenar)
         {
@@ -22,7 +20,7 @@ class Pizzeria
             Console.WriteLine("4) Postres");
             Console.WriteLine("5) Bebidas");
             opcion = int.Parse(Console.ReadLine());
-                
+
             switch (opcion)
             {
                 case 1:
@@ -125,7 +123,7 @@ class Pizzeria
                     Console.WriteLine("2) Te de durazno" + " " + "$1");
                     Console.WriteLine("3) Horchata" + " " + "$1.50");
                     bebida = int.Parse(Console.ReadLine());
-                    
+
                     switch (bebida)
                     {
                         case 1:
@@ -139,49 +137,53 @@ class Pizzeria
                             break;
 
                     }
-                    break; 
+                    break;
             }
 
             ordenes++;
 
-            Console.Write("¿Desea agregar algo más?:");
+            Console.Write("¿Desea agregar algo más?" + " " + "(si/no):");
+            Console.WriteLine();
             extra = Console.ReadLine();
+            Console.WriteLine();
 
             if (extra.ToLower() != "si")
             {
                 ordenar = false;
             }
-            
+
 
 
         }
 
 
         Console.WriteLine("Total de su orden:" + "$" + total);
+        Console.WriteLine();
         Console.WriteLine("Número de ordenes realizadas:" + " " + ordenes);
+        Console.WriteLine();
         if (ordenes > 1 && ordenes <= 5)
         {
             Console.WriteLine("Como ha ordenado mas de una vez con nosotros, se le hara un descuento del 7%");
+            Console.WriteLine();
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.07));
+            Console.WriteLine();
 
         }
         if (ordenes > 5 && ordenes <= 10)
         {
             Console.WriteLine("Como ha ordenado mas de 5 veces con nosotros, se le hara un descuento del 10%");
-            Console.WriteLine("Total a pagar" + " " +  "$" + (total - total * 0.10));
+            Console.WriteLine();
+            Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.10));
+            Console.WriteLine();
         }
         if (ordenes > 10)
         {
             Console.WriteLine("Como ha ordenado mas de 10 veces con nosotros, se le hara un descuento del 15%");
+            Console.WriteLine();
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.15));
+            Console.WriteLine();
         }
         Console.WriteLine("¡Gracias por su compra!");
-
-
-
-
-
-
 
     }
 }
