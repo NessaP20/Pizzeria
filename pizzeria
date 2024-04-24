@@ -175,6 +175,22 @@ class Pizzeria
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.15));
         }
 
+Console.WriteLine("¿Desea pagar en efectivo o tarjeta?");
+ pago = Console.ReadLine();
+
+ if (pago == "tarjeta")
+ {
+     Console.WriteLine("Ingrese su numero de tarjeta (6 dígitos):");
+     tarjeta = int.Parse(Console.ReadLine());
+     Console.WriteLine();
+     Console.WriteLine("¡Gracias por su compra!");
+ }
+ else
+ {
+     Console.WriteLine("Pasea caja a cancelar");
+     Console.WriteLine();
+     Console.WriteLine("¡Gracias por su compra!");
+ }
         Console.WriteLine();   
         Console.WriteLine("¡Gracias por su compra!");
 
