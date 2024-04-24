@@ -1,796 +1,187 @@
-class pizzeria
+using System.Security.Cryptography;
+
+class Pizzeria
 {
-    static public void Main(string[] args)
+    static void Main(string[] args)
     {
-        string nombre;
-        int opción, pizza, bebida, combo, postre, entrada, cantidad;
-        double precioTotal = 4.00, precio=0, total=0;
-        String masa, queso, vege1, vege2, salsa, carne1, carne2;
+        string nombre, extra;
+        double total = 0;
+        int opcion, pizza, combo, entrada, postre, bebida, ordenes = 0;
+        bool ordenar = true;
 
         Console.WriteLine("¿Cuál es su nombre?");
         nombre = Console.ReadLine();
 
-        Console.Clear();
+        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
 
-        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?.");
-     
-        Console.WriteLine("Dentro de nuestros menú le ofrecemos una variedad de opciones que se adaptan al gusto de cada cliente.");
-        Console.WriteLine(" ");
-
-        Console.WriteLine("1. Pizza");
-        Console.WriteLine("2. Combos");
-        Console.WriteLine("3. Pizza personalizada");
-        Console.WriteLine("4. Entrada");
-        Console.WriteLine("5. Postres");
-        Console.WriteLine("6. Bebidas");
-        opción = int.Parse(Console.ReadLine());
-        Console.Clear();
-
-        switch (opción)
+        while (ordenar)
         {
-            case 1:
-                Console.WriteLine("1. Triple queso (Mozzarella, Cheddar, Parmesano)");
-                Console.WriteLine("2. Pizza Hawaiana (Jamón, tocino, Piña");
-                Console.WriteLine("3. Vulcano (Ppeperoni añejo, Jalapeño y cebolla)");
-                Console.WriteLine("4. Margherita (Tomate cherry, pesto de albahaca)");
-                Console.WriteLine("5. Speziato (Tocino, Cheddar, Jalapeño)");
-                pizza = int.Parse(Console.ReadLine());
+            Console.WriteLine("1) Pizza");
+            Console.WriteLine("2) Combos");
+            Console.WriteLine("3) Entrada");
+            Console.WriteLine("4) Postres");
+            Console.WriteLine("5) Bebidas");
+            opcion = int.Parse(Console.ReadLine());
+                
+            switch (opcion)
+            {
+                case 1:
+                    Console.WriteLine("Elija la especialidad:");
+                    Console.WriteLine("1) Pepperonni" + " " + "$8");
+                    Console.WriteLine("2) Jamon" + " " + "$8");
+                    Console.WriteLine("3) Tres Quesos" + " " + "$10");
+                    Console.WriteLine("4) Vegetariana" + " " + "$9");
+                    pizza = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Desea ordenar algo más");
-                Console.WriteLine("1. Si");
-                Console.WriteLine("2. No");
-                opción = int.Parse(Console.ReadLine());
-
-                while (opción == 1)
-                {
-                    Console.WriteLine("1. Pizza");
-                    Console.WriteLine("2. Combos");
-                    Console.WriteLine("3. Pizza personalizada");
-                    Console.WriteLine("4. Entrada");
-                    Console.WriteLine("5. Postres");
-                    Console.WriteLine("6. Bebidas");
-                    opción = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    switch (opción)
+                    switch (pizza)
                     {
                         case 1:
-                            Console.WriteLine("1. Triple queso (Mozzarella, Cheddar, Parmesano)");
-                            Console.WriteLine("2. Pizza Hawaiana (Jamón, tocino, Piña");
-                            Console.WriteLine("3. Vulcano (Ppeperoni añejo, Jalapeño y cebolla)");
-                            Console.WriteLine("4. Margherita (Tomate cherry, pesto de albahaca)");
-                            Console.WriteLine("5. Speziato (Tocino, Cheddar, Jalapeño)");
-                            pizza = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
-                        break;
-
+                            total += 8;
+                            break;
                         case 2:
-                            Console.WriteLine("1. Artigiano $15.95");
-                            Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
-                            Console.WriteLine("2. Speciale $11.95");
-                            Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
-                            Console.WriteLine("3. Classico $9.99");
-                            Console.WriteLine("Contiene una pizza grande de pepperoni o Jamón, pan con ajo y 2 Té de durazno");
-                            Console.WriteLine("4. Duetto $15.99");
-                            Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o Jamón y 4 Té de Durazno");
-                            Console.WriteLine("5. Tripletta $23.99");
-                            Console.WriteLine("Contiene 3 pizzas grandes de Jamón o pepperoni y 6 Té de Durazno");
-
-                            combo = int.Parse(Console.ReadLine());
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
-
-                        break;
-
+                            total += 8;
+                            break;
                         case 3:
-
-                        break;
-
+                            total += 10;
+                            break;
                         case 4:
-Console.WriteLine("Elija su entrada:");
-Console.WriteLine("1) Pizzeta de ajo $3.50");
-Console.WriteLine("2) Pan con ajo $3.50");
-Console.WriteLine("3) Alitas $4.50");
-entrada = int.Parse(Console.ReadLine());
+                            total += 9;
+                            break;
 
-switch (entrada)
-{
-    case 1:
-        Console.WriteLine("Ha elejido pizzeta de ajo");
-        precio += precio + 3.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-    case 2:
-        Console.WriteLine("Ha elejido pan con ajo");
-        precio += precio + 3.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-    case 3:
-        Console.WriteLine("Ha elejido alitas");
-        precio += precio + 4.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-}
-
-                        break;
-
-                        case 5:
-Console.WriteLine("Que postre desea?");
-Console.WriteLine("1) Brownie $1.25");
-Console.WriteLine("2) Tres Leches $1.75");
-Console.WriteLine("3) Cheesecake $3");
-Console.WriteLine("4) Quesadilla $2");
-postre = int.Parse(Console.ReadLine());
-
-switch (postre)
-{
-    case 1:
-        Console.WriteLine("Cuantos brownies agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 1.25 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 2:
-        Console.WriteLine("Cuantos tres leches agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 1.75 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 3:
-        Console.WriteLine("Cuantos cheesecake agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 3 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 4:
-        Console.WriteLine("Cuantas quesadillas agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 2 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-}
-
-                        break;
-
-                        case 6:
-                            Console.WriteLine("Elige la bebida de tu preferencia");
-                            Console.WriteLine("1. Limonada");
-                            Console.WriteLine("2. Té de durazno");
-                            Console.WriteLine("3. Horchata");
-                            Console.WriteLine("4. Soda lata");
-                            Console.WriteLine("5. Limonada Greenapple");
-                            bebida = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
-                        break;
 
                     }
-                }
-            break;
+                    break;
 
+                case 2:
+                    Console.WriteLine("Elija el combo:");
+                    Console.WriteLine("1) Artigiano" + " " + "$16.99");
+                    Console.WriteLine("Contiene una pizza grande de pepperoni o jamon, una orden de alitas, una pizzeta de ojo y tres te de durazno");
+                    Console.WriteLine("2) Duetto" + " " + "$15.99");
+                    Console.WriteLine("Contiene dos pizzas grande de pepperoni o jamon y cuatro te de durazno");
+                    Console.WriteLine("3) Tripletta" + " " + "$23.99");
+                    Console.WriteLine("Contiene tres pizzas grande de pepperoni o jamon y 6 te de durazno");
+                    combo = int.Parse(Console.ReadLine());
 
-
-
-
-            case 2:
-                            Console.WriteLine("1. Artigiano $15.95");
-                            Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
-                            Console.WriteLine("2. Speciale $11.95");
-                            Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
-                            Console.WriteLine("3. Classico $9.99");
-                            Console.WriteLine("Contiene una pizza grande de pepperoni o Jamón, pan con ajo y 2 Té de durazno");
-                            Console.WriteLine("4. Duetto $15.99");
-                            Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o Jamón y 4 Té de Durazno");
-                            Console.WriteLine("5. Tripletta $23.99");
-                            Console.WriteLine("Contiene 3 pizzas grandes de Jamón o pepperoni y 6 Té de Durazno");
-
-int opcionPizza = Convert.ToInt32(Console.ReadLine());
-
-string tipoPizza;
-
-switch (opcionPizza)
-{
-    case 1:
-        tipoPizza = "Artigiano $15.95";
-        Console.WriteLine("Seleccione el tipo de aderezo de las alitas");
-
-        Console.WriteLine("1. BBQ");
-        Console.WriteLine("2. Ranch");
-        Console.WriteLine("3. Buffalo");
-
-        int opcionaderezo = Convert.ToInt32(Console.ReadLine());
-
-        string aderezo;
-
-        switch (opcionaderezo)
-        {
-            case 1:
-                aderezo = "con BBQ";
-                break;
-            case 2:
-                aderezo = "con Ranch";
-                break;
-            case 3:
-                aderezo = "Con Buffalo";
-                break;
-            default:
-                Console.WriteLine("Opción no válida.");
-                return;
-        }
-        break;
-    case 2:
-        tipoPizza = "Speciale $11.95";
-
-        break;
-    case 3:
-        tipoPizza = "Classico $9.99";
-
-        break;
-    case 4:
-        tipoPizza = "Duetto $15.99";
-
-        break;
-    case 5:
-        tipoPizza = "Tripletta $23.99";
-
-        break;
-    default:
-        Console.WriteLine("Opción no válida.");
-        return;
-}
-
-Console.WriteLine("Seleccione el ingrediente");
-
-Console.WriteLine("1. Pepperoni");
-Console.WriteLine("2. Jamon");
-
-int opcionIngrediente = Convert.ToInt32(Console.ReadLine());
-
-string Ingrediente;
-
-switch (opcionIngrediente)
-{
-    case 1:
-        Ingrediente = "con pepperoni";
-        break;
-    case 2:
-        Ingrediente = "con Jamon";
-        break;
-    default:
-        Console.WriteLine("Opción no válida.");
-        return;
-}
-
-Console.WriteLine("Resumen del pedido");
-Console.WriteLine("Pizza de " + tipoPizza );
-Console.WriteLine(Ingrediente);
-
-                combo = int.Parse(Console.ReadLine());
-
-                while (opción == 1)
-                {
-                    Console.WriteLine("1. Pizza");
-                    Console.WriteLine("2. Combos");
-                    Console.WriteLine("3. Pizza personalizada");
-                    Console.WriteLine("4. Entrada");
-                    Console.WriteLine("5. Postres");
-                    Console.WriteLine("6. Bebidas");
-                    opción = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    switch (opción)
+                    switch (combo)
                     {
                         case 1:
-                            Console.WriteLine("1. Triple queso (Mozzarella, Cheddar, Parmesano)");
-                            Console.WriteLine("2. Pizza Hawaiana (Jamón, tocino, Piña");
-                            Console.WriteLine("3. Vulcano (Ppeperoni añejo, Jalapeño y cebolla)");
-                            Console.WriteLine("4. Margherita (Tomate cherry, pesto de albahaca)");
-                            Console.WriteLine("5. Speziato (Tocino, Cheddar, Jalapeño)");
-                            pizza = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
+                            total += 16.99;
                             break;
-
                         case 2:
-                            Console.WriteLine("1. Artigiano $15.95");
-                            Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
-                            Console.WriteLine("2. Speciale $11.95");
-                            Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
-                            Console.WriteLine("3. Classico $9.99");
-                            Console.WriteLine("Contiene una pizza grande de pepperoni o Jamón, pan con ajo y 2 Té de durazno");
-                            Console.WriteLine("4. Duetto $15.99");
-                            Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o Jamón y 4 Té de Durazno");
-                            Console.WriteLine("5. Tripletta $23.99");
-                            Console.WriteLine("Contiene 3 pizzas grandes de Jamón o pepperoni y 6 Té de Durazno");
-
-                            combo = int.Parse(Console.ReadLine());
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
-
+                            total += 15.99;
                             break;
-
                         case 3:
-
-                            break;
-
-                        case 4:
-Console.WriteLine("Elija su entrada:");
-Console.WriteLine("1) Pizzeta de ajo $3.50");
-Console.WriteLine("2) Pan con ajo $3.50");
-Console.WriteLine("3) Alitas $4.50");
-entrada = int.Parse(Console.ReadLine());
-
-switch (entrada)
-{
-    case 1:
-        Console.WriteLine("Ha elejido pizzeta de ajo");
-        precio += precio + 3.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-    case 2:
-        Console.WriteLine("Ha elejido pan con ajo");
-        precio += precio + 3.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-    case 3:
-        Console.WriteLine("Ha elejido alitas");
-        precio += precio + 4.50;
-        Console.WriteLine("Se agregara:" + " " + precio + " " + "a su cuenta final");
-        break;
-
-}
-
-                            break;
-
-                        case 5:
-Console.WriteLine("Que postre desea?");
-Console.WriteLine("1) Brownie $1.25");
-Console.WriteLine("2) Tres Leches $1.75");
-Console.WriteLine("3) Cheesecake $3");
-Console.WriteLine("4) Quesadilla $2");
-postre = int.Parse(Console.ReadLine());
-
-switch (postre)
-{
-    case 1:
-        Console.WriteLine("Cuantos brownies agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 1.25 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 2:
-        Console.WriteLine("Cuantos tres leches agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 1.75 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 3:
-        Console.WriteLine("Cuantos cheesecake agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 3 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-
-    case 4:
-        Console.WriteLine("Cuantas quesadillas agregara?");
-        cantidad = int.Parse(Console.ReadLine());
-        total += total + 2 * cantidad;
-        Console.WriteLine("Se agregara:" + " $" + total + " " + "a su cuenta final");
-        break;
-}
-
-
-                            break;
-
-                        case 6:
-                            Console.WriteLine("Elige la bebida de tu preferencia");
-                            Console.WriteLine("1. Limonada");
-                            Console.WriteLine("2. Té de durazno");
-                            Console.WriteLine("3. Horchata");
-                            Console.WriteLine("4. Soda lata");
-                            Console.WriteLine("5. Limonada Greenapple");
-                            bebida = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
+                            total += 23.99;
                             break;
 
                     }
-                }
+                    break;
 
+                case 3:
+                    Console.WriteLine("Elija su entrada:");
+                    Console.WriteLine("1) Pizzeta de ajo" + " " + "$3.50");
+                    Console.WriteLine("2) Pan con ajo" + " " + "$3");
+                    Console.WriteLine("3) Alitas" + " " + "$4.50");
+                    entrada = int.Parse(Console.ReadLine());
 
-                break;
-
-            case 3:
-
-                Console.WriteLine("¡Seleccione los ingredientes para personalizar su pizza!");
-                Console.WriteLine("\nSeleccione el tipo de masa:");
-                Console.WriteLine("1. Tradicional");
-                Console.WriteLine("2. Sin gluten");
-                Console.WriteLine("3. Integral");
-                int opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        masa = "Tradicional";
-                        break;
-                    case 2:
-                        masa = "Sin gluten";
-                        precioTotal += 1.50;
-                        break;
-                    case 3:
-                        masa = "Integral";
-                        precioTotal += 2.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará masa tradicional por defecto.");
-                        masa = "Tradicional";
-                        break;
-                }
-
-                Console.WriteLine("\nSeleccione el tipo de queso:");
-                Console.WriteLine("1. Mozzarella");
-                Console.WriteLine("2. Parmesano");
-                Console.WriteLine("3. Cheddar");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        queso = "Mozzarella";
-                        break;
-                    case 2:
-                        queso = "Parmesano";
-                        precioTotal += 1;
-                        break;
-                    case 3:
-                        queso = "Cheddar";
-                        precioTotal += 1;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará queso mozzarella por defecto.");
-                        queso = "Mozzarella";
-                        break;
-                }
-
-                Console.WriteLine("\nSeleccione el tipo de salsa:");
-                Console.WriteLine("1. Salsa de tomate");
-                Console.WriteLine("2. Pesto");
-                Console.WriteLine("3. BBQ");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        salsa = "Salsa de tomate";
-                        break;
-                    case 2:
-                        salsa = "Pesto";
-                        precioTotal += 1.00;
-                        break;
-                    case 3:
-                        salsa = "BBQ";
-                        precioTotal += 1.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará salsa de tomate por defecto.");
-                        salsa = "Salsa de tomate";
-                        break;
-                }
-
-                Console.WriteLine("\nSeleccione los vegetales:");
-                Console.WriteLine("Seleccione el primer vegetal:");
-                Console.WriteLine("1.Champiñones");
-                Console.WriteLine("2.Pimientos");
-                Console.WriteLine("3.Cebolla");
-                Console.WriteLine("4.Aceitunas");
-                Console.WriteLine("5.Ninguno");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        vege1 = "Champiñones";
-                        break;
-                    case 2:
-                        vege1 = "Pimientos";
-                        precioTotal += 0.50;
-                        break;
-                    case 3:
-                        vege1 = "Cebolla";
-                        precioTotal += 0.50;
-                        break;
-                    case 4:
-                        vege1 = "Aceitunas";
-                        precioTotal += 0.50;
-                        break;
-                    case 5:
-                        vege1 = "-";
-                        precioTotal += 0.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará vegetales por defecto.");
-                        vege1 = "Champiñones";
-                        break;
-                }
-
-                Console.WriteLine("\nSeleccione el segundo vegetal:");
-                Console.WriteLine("1.Champiñones");
-                Console.WriteLine("2.Pimientos");
-                Console.WriteLine("3.Cebolla");
-                Console.WriteLine("4.Aceitunas");
-                Console.WriteLine("5.Ninguno");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        vege2 = "Champiñones";
-                        break;
-                    case 2:
-                        vege2 = "Pimientos";
-                        precioTotal += 0.50;
-                        break;
-                    case 3:
-                        vege2 = "Cebolla";
-                        precioTotal += 0.50;
-                        break;
-                    case 4:
-                        vege2 = "Aceitunas";
-                        precioTotal += 0.50;
-                        break;
-                    case 5:
-                        vege2 = "-";
-                        precioTotal += 0.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará vegetales por defecto.");
-                        vege2 = "Cebolla";
-                        break;
-                }
-
-                Console.WriteLine("\nSeleccione el tipo de carne:");
-                Console.WriteLine("1. Pepperoni");
-                Console.WriteLine("2. Jamón");
-                Console.WriteLine("3. Pollo");
-                Console.WriteLine("4. Tocino");
-                Console.WriteLine("5. Salami");
-                Console.WriteLine("6. Ninguno");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        carne1 = "Pepperoni";
-                        break;
-                    case 2:
-                        carne1 = "Jamón";
-                        precioTotal += 1;
-                        break;
-                    case 3:
-                        carne1 = "Pollo";
-                        precioTotal += 1;
-                        break;
-                    case 4:
-                        carne1 = "Tocino";
-                        precioTotal += 1;
-                        break;
-                    case 5:
-                        carne1 = "Salami";
-                        precioTotal += 1;
-                        break;
-                    case 6:
-                        carne1 = "-";
-                        precioTotal += 0.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará Pepperoni por defecto.");
-                        carne1 = "Pepperoni";
-                        break;
-                }
-
-                Console.WriteLine("\n Seleccione el segundo tipo de carne:");
-                Console.WriteLine("1. Pepperoni");
-                Console.WriteLine("2. Jamón");
-                Console.WriteLine("3. Pollo");
-                Console.WriteLine("4. Tocino");
-                Console.WriteLine("5. Salami");
-                Console.WriteLine("6. Ninguno");
-                opcion = Convert.ToInt32(Console.ReadLine());
-
-                switch (opcion)
-                {
-                    case 1:
-                        carne2 = "Pepperoni";
-                        break;
-                    case 2:
-                        carne2 = "Jamón";
-                        precioTotal += 1;
-                        break;
-                    case 3:
-                        carne2 = "Pollo";
-                        precioTotal += 1;
-                        break;
-                    case 4:
-                        carne2 = "Tocino";
-                        precioTotal += 1;
-                        break;
-                    case 5:
-                        carne2 = "Salami";
-                        precioTotal += 1;
-                        break;
-                    case 6:
-                        carne2 = "-";
-                        precioTotal += 0.00;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Se seleccionará Pepperoni por defecto.");
-                        carne2 = "Pepperoni";
-                        break;
-                }
-                Console.WriteLine("\nResumen del pedido:");
-                Console.WriteLine("Masa: " + masa);
-                Console.WriteLine("Queso:" + queso);
-                Console.WriteLine("Salsa:" + salsa);
-                Console.WriteLine("Primer vegetal:" + vege1);
-                Console.WriteLine("Segundo Vegetal:" + vege2);
-                Console.WriteLine("Primer carne:" + carne1);
-                Console.WriteLine("Segunda carne:" + carne2);
-                Console.WriteLine("Precio Total:" + precioTotal);
-                Console.WriteLine("\n¡Gracias por ordenar en nuestra pizzería!");
-
-                break;
-
-            case 4:
-                break;
-
-            case 5:
-                break;
-
-            case 6:
-                Console.WriteLine("Elige la bebida de tu preferencia");
-                Console.WriteLine("1. Limonada");
-                Console.WriteLine("2. Té de durazno");
-                Console.WriteLine("3. Horchata");
-                Console.WriteLine("4. Soda lata");
-                Console.WriteLine("5. Limonada Greenapple");
-                bebida = int.Parse(Console.ReadLine());
-
-                while (opción == 1)
-                {
-                    Console.WriteLine("1. Pizza");
-                    Console.WriteLine("2. Combos");
-                    Console.WriteLine("3. Pizza personalizada");
-                    Console.WriteLine("4. Entrada");
-                    Console.WriteLine("5. Postres");
-                    Console.WriteLine("6. Bebidas");
-                    opción = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    switch (opción)
+                    switch (entrada)
                     {
                         case 1:
-                            Console.WriteLine("1. Triple queso (Mozzarella, Cheddar, Parmesano)");
-                            Console.WriteLine("2. Pizza Hawaiana (Jamón, tocino, Piña");
-                            Console.WriteLine("3. Vulcano (Ppeperoni añejo, Jalapeño y cebolla)");
-                            Console.WriteLine("4. Margherita (Tomate cherry, pesto de albahaca)");
-                            Console.WriteLine("5. Speziato (Tocino, Cheddar, Jalapeño)");
-                            pizza = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
+                            total += 3.50;
                             break;
-
                         case 2:
-                            Console.WriteLine("1. Artigiano $15.95");
-                            Console.WriteLine("Contiene una Pizza grande de peperoni o jamón, una orden de alitas, pizzeta de ajo, 3 té de durazno");
-                            Console.WriteLine("2. Speciale $11.95");
-                            Console.WriteLine("Contiene una pizza grande de especialidad, pan con ajo, 2 Té de durazno");
-                            Console.WriteLine("3. Classico $9.99");
-                            Console.WriteLine("Contiene una pizza grande de pepperoni o Jamón, pan con ajo y 2 Té de durazno");
-                            Console.WriteLine("4. Duetto $15.99");
-                            Console.WriteLine("Contiene 2 pizzas grandes ppeperoni o Jamón y 4 Té de Durazno");
-                            Console.WriteLine("5. Tripletta $23.99");
-                            Console.WriteLine("Contiene 3 pizzas grandes de Jamón o pepperoni y 6 Té de Durazno");
-
-                            combo = int.Parse(Console.ReadLine());
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
-
+                            total += 3;
                             break;
-
                         case 3:
-
+                            total += 4.50;
                             break;
+                    }
+                    break;
 
-                        case 4:
-
+                case 4:
+                    Console.WriteLine("Elija su postre:");
+                    Console.WriteLine("1) Brownie" + " " + "$1.25");
+                    Console.WriteLine("2) Tres Leches" + " " + "$1.75");
+                    Console.WriteLine("3) Cheescake" + " " + "$3");
+                    postre = int.Parse(Console.ReadLine());
+                    switch (postre)
+                    {
+                        case 1:
+                            total += 1.25;
                             break;
-
-                        case 5:
-
+                        case 2:
+                            total += 1.75;
                             break;
-
-                        case 6:
-                            Console.WriteLine("Elige la bebida de tu preferencia");
-                            Console.WriteLine("1. Limonada");
-                            Console.WriteLine("2. Té de durazno");
-                            Console.WriteLine("3. Horchata");
-                            Console.WriteLine("4. Soda lata");
-                            Console.WriteLine("5. Limonada Greenapple");
-                            bebida = int.Parse(Console.ReadLine());
-
-
-                            Console.WriteLine("Desea ordenar algo más");
-                            Console.WriteLine("1. Si");
-                            Console.WriteLine("2. No");
-                            opción = int.Parse(Console.ReadLine());
-
-
+                        case 3:
+                            total += 3;
                             break;
 
                     }
-                }
+                    break;
 
+                case 5:
+                    Console.WriteLine("Elija su bebida:");
+                    Console.WriteLine("1) Limonada" + " " + "$2");
+                    Console.WriteLine("2) Te de durazno" + " " + "$1");
+                    Console.WriteLine("3) Horchata" + " " + "$1.50");
+                    bebida = int.Parse(Console.ReadLine());
+                    
+                    switch (bebida)
+                    {
+                        case 1:
+                            total += 2;
+                            break;
+                        case 2:
+                            total += 1;
+                            break;
+                        case 3:
+                            total += 1.50;
+                            break;
 
-                break;
+                    }
+                    break; 
+            }
+
+            ordenes++;
+
+            Console.Write("¿Desea agregar algo más?:");
+            extra = Console.ReadLine();
+
+            if (extra.ToLower() != "si")
+            {
+                ordenar = false;
+            }
+            
+
 
         }
+
+
+        Console.WriteLine("Total de su orden:" + "$" + total);
+        Console.WriteLine("Número de ordenes realizadas:" + " " + ordenes);
+        if (ordenes > 1 && ordenes <= 5)
+        {
+            Console.WriteLine("Como ha ordenado mas de una vez con nosotros, se le hara un descuento del 7%");
+            Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.07));
+
+        }
+        if (ordenes > 5 && ordenes <= 10)
+        {
+            Console.WriteLine("Como ha ordenado mas de 5 veces con nosotros, se le hara un descuento del 10%");
+            Console.WriteLine("Total a pagar" + " " +  "$" + (total - total * 0.10));
+        }
+        if (ordenes > 10)
+        {
+            Console.WriteLine("Como ha ordenado mas de 10 veces con nosotros, se le hara un descuento del 15%");
+            Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.15));
+        }
+        Console.WriteLine("¡Gracias por su compra!");
+
+
+
+
+
+
 
     }
 }
