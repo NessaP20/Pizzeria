@@ -10,7 +10,7 @@ class Pizzeria
         Console.WriteLine("¿Cuál es su nombre?");
         nombre = Console.ReadLine();
 
-        Console.WriteLine("Bienvenido/a" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
+        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
 
         while (ordenar)
         {
@@ -142,8 +142,7 @@ class Pizzeria
 
             ordenes++;
 
-            Console.Write("¿Desea agregar algo más?" + " " + "(si/no):");
-            Console.WriteLine();
+            Console.WriteLine("¿Desea agregar algo más?:");
             extra = Console.ReadLine();
             Console.WriteLine();
 
@@ -158,32 +157,32 @@ class Pizzeria
 
 
         Console.WriteLine("Total de su orden:" + "$" + total);
-        Console.WriteLine();
         Console.WriteLine("Número de ordenes realizadas:" + " " + ordenes);
-        Console.WriteLine();
         if (ordenes > 1 && ordenes <= 5)
         {
             Console.WriteLine("Como ha ordenado mas de una vez con nosotros, se le hara un descuento del 7%");
-            Console.WriteLine();
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.07));
-            Console.WriteLine();
 
         }
         if (ordenes > 5 && ordenes <= 10)
         {
             Console.WriteLine("Como ha ordenado mas de 5 veces con nosotros, se le hara un descuento del 10%");
-            Console.WriteLine();
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.10));
-            Console.WriteLine();
         }
         if (ordenes > 10)
         {
             Console.WriteLine("Como ha ordenado mas de 10 veces con nosotros, se le hara un descuento del 15%");
-            Console.WriteLine();
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.15));
-            Console.WriteLine();
         }
+
+        Console.WriteLine();   
         Console.WriteLine("¡Gracias por su compra!");
+
+
+
+
+
+
 
     }
 }
