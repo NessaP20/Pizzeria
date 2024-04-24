@@ -6,7 +6,7 @@ class Pizzeria
     {
         string nombre, extra;
         double total = 0;
-        int opcion, pizza, combo, personalizada, entrada, postre, bebida, ordenes = 0;
+        int opcion, pizza, combo, entrada, postre, bebida, ordenes = 0;
         bool ordenar = true;
 
         Console.WriteLine("¿Cuál es su nombre?");
