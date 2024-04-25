@@ -10,7 +10,7 @@ class Pizzeria
         Console.WriteLine("¿Cuál es su nombre?");
         nombre = Console.ReadLine();
 
-        Console.WriteLine("Bienvenido" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
+        Console.WriteLine("Bienvenid@" + " " + nombre + " " + "a nuestro restaurante. ¿Qué desea ordenar?");
 
         while (ordenar)
         {
