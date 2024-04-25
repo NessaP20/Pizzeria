@@ -142,7 +142,7 @@ class Pizzeria
 
             ordenes++;
 
-            Console.WriteLine("¿Desea agregar algo más?:");
+            Console.WriteLine("¿Desea agregar algo más?:(Si/No)");
             extra = Console.ReadLine();
             Console.WriteLine();
 
