@@ -192,7 +192,7 @@ Console.WriteLine("¿Desea pagar en efectivo o tarjeta?");
      Console.WriteLine("¡Gracias por su compra!");
  }
         Console.WriteLine();   
-        Console.WriteLine("¡Gracias por su compra!");
+      
 
 
 
