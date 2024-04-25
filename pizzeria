@@ -1,10 +1,10 @@
 class Pizzeria
 {
-    static void Main(string[] args)
+    static void Main(string[] args) 
     {
-        string nombre, extra, pago;
+        string nombre, extra, pago, tarjeta;
         double total = 0;
-        int opcion, pizza, combo, entrada, postre, bebida, tarjeta, ordenes = 0;
+        int opcion, pizza, combo, entrada, postre, bebida, ordenes = 0;
         bool ordenar = true;
 
         Console.WriteLine("¿Cuál es su nombre?");
@@ -175,19 +175,21 @@ class Pizzeria
             Console.WriteLine("Total a pagar" + " " + "$" + (total - total * 0.15));
         }
 
+Console.WriteLine();
 Console.WriteLine("¿Desea pagar en efectivo o tarjeta?");
  pago = Console.ReadLine();
 
- if (pago == "tarjeta")
+ if (pago.ToLower() == "tarjeta")
  {
-     Console.WriteLine("Ingrese su numero de tarjeta (10 dígitos):");
-     tarjeta = int.Parse(Console.ReadLine());
+     Console.WriteLine("Ingrese su numero de tarjeta:");
+     tarjeta = (Console.ReadLine());
      Console.WriteLine();
      Console.WriteLine("¡Gracias por su compra!");
  }
  else
  {
-     Console.WriteLine("Pasea caja a cancelar");
+     Console.WriteLine();
+     Console.WriteLine("Pase a caja a cancelar");
      Console.WriteLine();
      Console.WriteLine("¡Gracias por su compra!");
  }
