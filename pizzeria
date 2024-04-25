@@ -180,7 +180,7 @@ Console.WriteLine("¿Desea pagar en efectivo o tarjeta?");
 
  if (pago == "tarjeta")
  {
-     Console.WriteLine("Ingrese su numero de tarjeta (6 dígitos):");
+     Console.WriteLine("Ingrese su numero de tarjeta (10 dígitos):");
      tarjeta = int.Parse(Console.ReadLine());
      Console.WriteLine();
      Console.WriteLine("¡Gracias por su compra!");
